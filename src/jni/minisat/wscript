@@ -1,0 +1,36 @@
+#! /usr/bin/env python
+# encoding: utf-8
+
+import shutil
+import subprocess
+
+def options(opt):
+    opt.load('compiler_cxx')
+    opt.load('java')
+
+def configure(conf):
+    conf.load('compiler_cxx')
+    conf.load('java')
+    conf.check_jni_headers()
+    conf.env.DEFINES = ['__STDC_LIMIT_MACROS', '__STDC_FORMAT_MACROS']
+    conf.env.INCLUDES = ['.','./minisat'] 
+    conf.env.CXXFLAGS = [ '-w', '-O3', '-fPIC']
+    conf.env.UTILS_SRC = 'minisat/minisat/utils/*.cc'
+    conf.env.CORE_SRC = 'minisat/minisat/core/Solver.cc'
+    conf.env.JNI_SRC = '*.cpp'
+    MINISAT = conf.path.abspath() + '/minisat'
+    shutil.rmtree(MINISAT, True)
+    subprocess.check_call(['git', 'clone', 'https://github.com/stp/minisat.git', MINISAT])
+
+
+def build(bld):
+    bld.objects(source = bld.path.ant_glob(bld.env.UTILS_SRC), target = 'utils')
+    bld.objects(source = bld.path.ant_glob(bld.env.CORE_SRC), target = 'core', use = 'utils')
+    bld.shlib(source = bld.path.ant_glob(bld.env.JNI_SRC), uselib = 'JAVA', use = 'core', target = 'minisat')
+            
+def distclean(ctx):
+    from waflib import Scripting
+    Scripting.distclean(ctx)
+    shutil.rmtree(ctx.path.abspath() + '/minisat', True)
+    
+    
