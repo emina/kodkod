@@ -14,6 +14,7 @@
 hs_err_pid*
 /bin/
 /lib/
+**/build/**
 *~
 .DS_Store
 .DS_Store?
