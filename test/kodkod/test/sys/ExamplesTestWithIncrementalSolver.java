@@ -48,7 +48,7 @@ public class ExamplesTestWithIncrementalSolver extends ExamplesTest  {
 		for(SATFactory factory : Solvers.allAvailableSolvers()) {
 			if (factory.incremental()) { 
 				ret.add(new Object[]{factory});
-				System.out.println(factory);
+				//System.out.println(factory);
 			}
 		}
 		
