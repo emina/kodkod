@@ -30,10 +30,8 @@ public class ExamplesTestWithRegularSolver extends ExamplesTest  {
 	public static Collection<Object[]> solversToTestWith() {
 		final Collection<Object[]> ret = new ArrayList<Object[]>();
 		for(SATFactory factory : Solvers.allAvailableSolvers()) {
-			if (factory.toString().equals("Glucose")) {
-				ret.add(new Object[]{factory});
-				System.out.println(factory);
-			}
+			ret.add(new Object[]{factory});
+			System.out.println(factory);
 		}
 		return ret;
 	}

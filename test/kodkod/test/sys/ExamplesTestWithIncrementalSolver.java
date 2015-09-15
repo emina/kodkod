@@ -46,7 +46,7 @@ public class ExamplesTestWithIncrementalSolver extends ExamplesTest  {
 	public static Collection<Object[]> solversToTestWith() {
 		final Collection<Object[]> ret = new ArrayList<Object[]>();
 		for(SATFactory factory : Solvers.allAvailableSolvers()) {
-			if (factory.incremental() && factory.toString().equals("Glucose")) {
+			if (factory.incremental()) { 
 				ret.add(new Object[]{factory});
 				System.out.println(factory);
 			}
