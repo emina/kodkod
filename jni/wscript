@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 
-solvers = ['minisat', 'minisatp']
+solvers = ['minisat', 'minisatp', 'glucose']
 
 def options(opt):
     for solver in solvers:

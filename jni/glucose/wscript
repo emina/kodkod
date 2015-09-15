@@ -1,0 +1,52 @@
+#! /usr/bin/env python
+# encoding: utf-8
+
+import shutil
+import subprocess, os
+
+def options(opt):
+    opt.load('compiler_cxx')
+    opt.load('java')
+
+def configure(conf):
+    conf.load('compiler_cxx')
+    conf.load('java')
+    conf.check_jni_headers()
+    sourceclean(conf)
+    root = conf.path.abspath()
+    subprocess.check_call(['wget', 'http://www.labri.fr/perso/lsimon/downloads/softwares/glucose-syrup.tgz', '--directory-prefix', root])
+    subprocess.check_call(['tar', '-xzf', root + '/glucose-syrup.tgz', '-C', root])
+    subprocess.check_call(['patch', '-p0', '-d', root + '/glucose-syrup/core/', '-i', root + '/Solver.patch'])
+
+def build(bld):
+    
+    DEFINES = ['__STDC_LIMIT_MACROS', '__STDC_FORMAT_MACROS']
+    INCLUDES = ['.','./glucose-syrup'] 
+    CXXFLAGS = [ '-w', '-O3', '-fPIC']
+
+    bld.objects(source = ['glucose-syrup/utils/Options.cc', 'glucose-syrup/utils/System.cc'],
+                target = 'utils',
+                includes = INCLUDES, cxxflags = CXXFLAGS, defines = DEFINES)
+    
+    bld.objects(source = 'glucose-syrup/core/Solver.cc',
+                target = 'core',
+                use = 'utils',
+                includes = INCLUDES, cxxflags = CXXFLAGS, defines = DEFINES)
+    
+    bld.shlib(source = 'kodkod_engine_satlab_Glucose.cpp',
+              target = 'glucose',
+              use = 'core', uselib = 'JAVA',
+              includes = INCLUDES, cxxflags = CXXFLAGS, defines = DEFINES)
+    
+def distclean(ctx):
+    from waflib import Scripting
+    Scripting.distclean(ctx)
+    sourceclean(ctx)
+
+def sourceclean(ctx):
+    shutil.rmtree(ctx.path.abspath() + '/glucose-syrup', True)
+    try:
+        os.remove(ctx.path.abspath() + '/glucose-syrup.tgz')
+    except OSError:
+        pass
+
