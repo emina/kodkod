@@ -31,7 +31,7 @@ public class ExamplesTestWithRegularSolver extends ExamplesTest  {
 		final Collection<Object[]> ret = new ArrayList<Object[]>();
 		for(SATFactory factory : Solvers.allAvailableSolvers()) {
 			ret.add(new Object[]{factory});
-			System.out.println(factory);
+			//System.out.println(factory);
 		}
 		return ret;
 	}
