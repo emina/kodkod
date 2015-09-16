@@ -12,18 +12,22 @@ def configure(conf):
     conf.load('compiler_cxx')
     conf.load('java')
     conf.check_jni_headers()
-    conf.env.INCLUDES = ['.']
-    conf.env.CXXFLAGS = [ '-w', '-O3', '-ffloat-store' ]
-    conf.env.CORE_SRC = 'minisatp/*.C'
-    conf.env.CORE_EXCL = 'minisatp/Main.C'
-    conf.env.JNI_SRC = '*.cpp'
     MINISAT = conf.path.abspath() + '/minisatp'
     shutil.rmtree(MINISAT, True)
     subprocess.check_call(['git', 'clone', 'https://github.com/emina/minisatp.git', MINISAT])
  
 def build(bld):
-    bld.objects(source = bld.path.ant_glob(bld.env.CORE_SRC, excl = [bld.env.CORE_EXCL]), target = 'core')   
-    bld.shlib(source = bld.path.ant_glob(bld.env.JNI_SRC), uselib = 'JAVA', use = 'core', target = 'minisatprover')
+    DEFINES = ['__STDC_LIMIT_MACROS', '__STDC_FORMAT_MACROS']
+    INCLUDES = ['.', './minisatp'] 
+    CXXFLAGS = [ '-w', '-O3', '-fPIC', '-ffloat-store']
+    
+    bld.objects(source = ['minisatp/Solver.C', 'minisatp/Proof.C', 'minisatp/File.C'],
+                target = 'minisatp-core',
+                includes = INCLUDES, cxxflags = CXXFLAGS, defines = DEFINES)
+      
+    bld.shlib(source = 'kodkod_engine_satlab_MiniSatProver.cpp',
+              target = 'minisatprover', use = 'minisatp-core', uselib = 'JAVA',
+              includes = INCLUDES, cxxflags = CXXFLAGS, defines = DEFINES)
 
 
 def distclean(ctx):

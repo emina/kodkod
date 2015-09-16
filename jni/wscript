@@ -5,31 +5,14 @@
 solvers = ['minisat', 'minisatp', 'glucose', 'lingeling', 'plingeling']
 
 def options(opt):
-    for solver in solvers:
-    	opt.recurse(solver)
+    opt.recurse(solvers)
      
 def configure(conf):
-    env = conf.env
-    for solver in solvers:  # create configuration sets for all solvers
-        conf.setenv(solver, env)
-        conf.recurse(solver)
+    conf.recurse(solvers)
      
 def build(bld):
-    if not bld.variant:   # no solver specified, build all
-        import waflib.Options
-        for solver in solvers: 
-            waflib.Options.commands.insert(0, bld.cmd + '_' + solver)
-    else:                               
-        bld.recurse(bld.variant)       
+    bld.recurse(solvers)    
 
 def distclean(ctx):
-    for solver in solvers:
-    	ctx.recurse(solver)  
+    ctx.recurse(solvers)  
 
-from waflib.Build import BuildContext, CleanContext, InstallContext, UninstallContext    
-for solver in solvers:
-    for y in (BuildContext, CleanContext, InstallContext, UninstallContext):
-        name = y.__name__.replace('Context','').lower()
-        class tmp(y): 
-            cmd = name + '_' + solver
-            variant = solver

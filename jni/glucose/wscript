@@ -24,17 +24,15 @@ def build(bld):
     CXXFLAGS = [ '-w', '-O3', '-fPIC']
 
     bld.objects(source = ['glucose-syrup/utils/Options.cc', 'glucose-syrup/utils/System.cc'],
-                target = 'utils',
+                target = 'glucose-utils',
                 includes = INCLUDES, cxxflags = CXXFLAGS, defines = DEFINES)
     
     bld.objects(source = 'glucose-syrup/core/Solver.cc',
-                target = 'core',
-                use = 'utils',
+                target = 'glucose-core', use = 'glucose-utils',
                 includes = INCLUDES, cxxflags = CXXFLAGS, defines = DEFINES)
     
     bld.shlib(source = 'kodkod_engine_satlab_Glucose.cpp',
-              target = 'glucose',
-              use = 'core', uselib = 'JAVA',
+              target = 'glucose', use = 'glucose-core', uselib = 'JAVA',
               includes = INCLUDES, cxxflags = CXXFLAGS, defines = DEFINES)
     
 def distclean(ctx):
