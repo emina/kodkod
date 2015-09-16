@@ -5,9 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 import org.junit.Before;
@@ -33,43 +31,87 @@ import kodkod.instance.Universe;
  * @author Emina Torlak 
  */
 public class EvaluatorTest {
-	private final String SOLUTION = "handshake.xml";
-	private final String PATH = "examples/puzzles/handshake/";
-	private final String UNIV_PATH = "alloy/lang/univ/";
 
 	private Evaluator evaluator;
-	private Relation univ, hilary, jocelyn, person, spouse, shaken;
+	private final Relation univ, hilary, jocelyn, person, spouse, shaken;
 
 	/**
 	 * Constructor for EvaluatorTest.
 	 * @param arg0
 	 */
 	public EvaluatorTest() {
-
+		univ = Relation.unary("univ");
+		hilary = Relation.unary("hilary");
+		jocelyn = Relation.unary("jocelyn");
+		person = Relation.unary("person");
+		spouse = Relation.binary("spouse");
+		shaken = Relation.binary("shaken");
 	}
 
-	private static Relation relation(Map<String,Relation> nameToRelation, String path, String name) {
-		return (Relation) nameToRelation.get(path+name);
-	}
 
 	@Before
 	public void setUp() throws Exception {
-
-
-		evaluator = new Evaluator(InstanceCreator.getInstance(this.getClass().getResourceAsStream(SOLUTION)));
-		Map<String, Relation> nameToRelation = new HashMap<String, Relation>();
-		for (Relation r : evaluator.instance().relations()) {
-			nameToRelation.put(r.name(), r);
-		}
-		univ = relation(nameToRelation, UNIV_PATH, "univ");
-		hilary = relation(nameToRelation, PATH, "Hilary");
-		jocelyn = relation(nameToRelation, PATH, "Jocelyn");
-		person = relation(nameToRelation, PATH, "Person");
-		spouse = relation(nameToRelation, PATH, "spouse");
-		shaken = relation(nameToRelation, PATH, "shaken");
+		final Universe u = 
+				new Universe("Jocelyn_0", "Hilary_0",  "Person_0", "Person_1", "Person_2", 
+						"Person_3",  "Person_4", "Person_5", "Person_6",  "Person_7");
+		final TupleFactory f = u.factory();
+		final Instance inst = new Instance(u);
+		inst.add(univ, f.allOf(1));
+		inst.add(hilary, f.setOf("Hilary_0"));
+		inst.add(jocelyn, f.setOf("Jocelyn_0"));
+		inst.add(person, f.allOf(1));
+		inst.add(spouse, f.setOf(f.tuple("Jocelyn_0", "Hilary_0"),
+								 f.tuple("Hilary_0", "Jocelyn_0"),
+								 f.tuple("Person_0", "Person_1"),
+								 f.tuple("Person_1", "Person_0"),
+								 f.tuple("Person_2", "Person_3"),
+								 f.tuple("Person_3", "Person_2"),
+								 f.tuple("Person_4", "Person_5"),
+								 f.tuple("Person_5", "Person_4"),
+								 f.tuple("Person_6", "Person_7"),
+								 f.tuple("Person_7", "Person_6")));
+		inst.add(shaken, f.setOf(f.tuple("Jocelyn_0", "Person_1"),
+								 f.tuple("Jocelyn_0", "Person_3"),
+								 f.tuple("Jocelyn_0", "Person_4"),
+								 f.tuple("Jocelyn_0", "Person_7"),
+								 f.tuple("Hilary_0", "Person_1"),
+								 f.tuple("Hilary_0", "Person_3"),
+								 f.tuple("Hilary_0", "Person_4"),
+								 f.tuple("Hilary_0", "Person_7"),
+								 f.tuple("Person_0", "Person_3"),
+								 f.tuple("Person_0", "Person_4"),
+								 f.tuple("Person_0", "Person_7"),
+								 f.tuple("Person_1", "Jocelyn_0"),
+								 f.tuple("Person_1", "Hilary_0"),
+								 f.tuple("Person_1", "Person_3"),
+								 f.tuple("Person_1", "Person_4"),
+								 f.tuple("Person_1", "Person_7"),
+								 f.tuple("Person_3", "Jocelyn_0"),
+								 f.tuple("Person_3", "Hilary_0"),
+								 f.tuple("Person_3", "Person_0"),
+								 f.tuple("Person_3", "Person_1"),
+								 f.tuple("Person_3", "Person_4"),
+								 f.tuple("Person_3", "Person_5"),
+								 f.tuple("Person_3", "Person_6"),
+								 f.tuple("Person_3", "Person_7"),
+								 f.tuple("Person_4", "Jocelyn_0"),
+								 f.tuple("Person_4", "Hilary_0"),
+								 f.tuple("Person_4", "Person_0"),
+								 f.tuple("Person_4", "Person_1"),
+								 f.tuple("Person_4", "Person_3"),
+								 f.tuple("Person_4", "Person_7"),
+								 f.tuple("Person_5", "Person_3"),
+								 f.tuple("Person_5", "Person_7"),
+								 f.tuple("Person_6", "Person_3"),
+								 f.tuple("Person_7", "Jocelyn_0"),
+								 f.tuple("Person_7", "Hilary_0"),
+								 f.tuple("Person_7", "Person_0"),
+								 f.tuple("Person_7", "Person_1"),
+								 f.tuple("Person_7", "Person_3"),
+								 f.tuple("Person_7", "Person_4"),
+								 f.tuple("Person_7", "Person_5")));
+		evaluator = new Evaluator(inst);
 	}
-
-
 
 
 	private boolean eval(Formula formula) {
