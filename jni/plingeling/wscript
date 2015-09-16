@@ -45,29 +45,3 @@ def sourceclean(ctx):
         os.remove(ctx.path.abspath() + '/build.sh')
     except OSError:
         pass
-
-## def configure(conf):
-##     sourceclean(conf)
-##     root = conf.path.abspath()
-##     node = conf.path.make_node(PLINGELING)
-##     node.mkdir()
-##     subprocess.check_call(['wget', 'http://fmv.jku.at/lingeling/' + PLINGELING + '.zip', '--directory-prefix', root])
-##     subprocess.check_call(['tar', '-xzf', root + '/' + PLINGELING + '.zip', '-C', node.abspath()])
-
-## def build(bld):
-##     bld.rule('sh ${SRC}',
-##              source = PLINGELING + '/build.sh',
-##              target = PLINGELING + '/binary/plingeling',
-##              install_path = '${LIBDIR}')
-
-## def distclean(ctx):
-##     from waflib import Scripting
-##     Scripting.distclean(ctx)
-##     sourceclean(ctx)
-
-## def sourceclean(ctx):
-##     shutil.rmtree(ctx.path.abspath() + '/' + PLINGELING, True)
-##     try:
-##         os.remove(ctx.path.abspath() + '/' + PLINGELING + '.zip')
-##     except OSError:
-##         pass
