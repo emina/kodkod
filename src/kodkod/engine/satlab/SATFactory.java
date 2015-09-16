@@ -127,16 +127,6 @@ public abstract class SATFactory {
 	};
 	
 	/**
-	 * The factory that produces instances of the CryptoMiniSat solver by Mate Soos.
-	 */
-	public static final SATFactory CryptoMiniSat = new SATFactory() {
-		public SATSolver instance() {
-			return new CryptoMiniSat();
-		}
-		public String toString() { return "CryptoMiniSat"; }
-	};
-	
-	/**
 	 * The factory that produces instances of Armin Biere's
 	 * Lingeling solver.
 	 */

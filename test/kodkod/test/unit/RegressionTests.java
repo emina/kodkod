@@ -16,6 +16,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+import org.junit.Test;
+
 import kodkod.ast.Decl;
 import kodkod.ast.Decls;
 import kodkod.ast.Expression;
@@ -24,11 +26,9 @@ import kodkod.ast.IntConstant;
 import kodkod.ast.IntExpression;
 import kodkod.ast.Relation;
 import kodkod.ast.Variable;
-import kodkod.ast.operator.Multiplicity;
 import kodkod.engine.Evaluator;
 import kodkod.engine.Proof;
 import kodkod.engine.Solution;
-import kodkod.engine.Solution.Outcome;
 import kodkod.engine.Solver;
 import kodkod.engine.config.AbstractReporter;
 import kodkod.engine.config.Options;
@@ -48,8 +48,6 @@ import kodkod.util.ints.IntIterator;
 import kodkod.util.ints.IntSet;
 import kodkod.util.ints.IntTreeSet;
 import kodkod.util.nodes.Nodes;
-
-import org.junit.Test;
 
 /**
  * Test cases that record reported bugs. 
@@ -186,61 +184,6 @@ public class RegressionTests  {
 			assertEquals(Solution.Outcome.SATISFIABLE, solution.outcome());
 			assertTrue(solution.instance().tuples(r0).size()  > 0 );
 		}
-	}
-
-	@Test
-	public final void testCryptoMiniSat_Jasmin_092511() {
-		Options options = new Options();
-		options.setSolver(SATFactory.CryptoMiniSat);
-		//options.setSolver(SATFactory.MiniSat);
-		final Solver solver = new Solver(options);
-		final int cardinality = 5;
-		final List<String> atoms = new ArrayList<String>(cardinality);
-		for (int i = 0; i < cardinality; ++i)
-			atoms.add(new String("A" + i));
-		final Universe universe = new Universe(atoms);
-		final TupleFactory factory = universe.factory();
-		Bounds bounds = new Bounds(universe);
-		final Relation r1 = Relation.nary("x", 1),
-		r2 = Relation.nary("y", 1);
-		final TupleSet upperBound = factory.allOf(1);
-		bounds.bound(r1, upperBound);
-		bounds.bound(r2, upperBound);
-
-		final Formula formula = //r1.apply(Multiplicity.ONE);
-			Formula.and(r1.apply(Multiplicity.ONE),
-					r2.apply(Multiplicity.ONE));
-
-		final Solution solution = solver.solve(formula, bounds);
-
-		//		final StringBuilder buf = new StringBuilder();
-		//		buf.append("\n---UNIVERSE---\n" + universe.toString() + "\n");
-		//		buf.append("\n---BOUNDS---\n" + bounds.toString() + "\n");
-		//		buf.append("\n---FORMULA---\n" + formula.toString() + "\n");
-		//
-		//		buf.append("\n---OUTCOME---\n");
-		//		buf.append(solution.outcome());
-		//		buf.append("\n");
-
-
-		//		if (solution.instance() != null) {
-		//			buf.append("\n---INSTANCE---\n");
-		//			buf.append(solution.instance());
-		//			buf.append("\n");
-		//		}
-		//		if (solution.proof() != null) {
-		//			buf.append("\n---PROOF---\n");
-		//			buf.append(solution.proof());
-		//			buf.append("\n");
-		//		}
-		//		buf.append("\n---STATS---\n");
-		//		buf.append(solution.stats());
-		//
-		//		System.out.println(buf);
-
-		assertEquals(Outcome.SATISFIABLE, solution.outcome());
-		assertEquals(1, solution.instance().tuples(r1).size());
-		assertEquals(1, solution.instance().tuples(r2).size());
 	}
 
 	@Test
