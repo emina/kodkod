@@ -116,7 +116,7 @@ public abstract class SATFactory {
 	};
 	
 	/**
-	 * The factory that produces instances of G. Audemard and L. Simon's 
+	 * The factory that produces instances of Gilles Audemard and Laurent Simon's 
 	 * Glucose solver.
 	 */
 	public static final SATFactory Glucose = new SATFactory() {

@@ -73,20 +73,20 @@ public final class SymmetryDetector {
 	
 	/**
 	 * Returns the coarsest sound partition of {@code bounds.universe} into symmetry classes. 
-	 * @return some symmetries: set IntSet | 
-	 *          (symmetries.ints = { i: int | 0 <= i < bounds.universe.size() }) && 
-	 *          (all p1, p2: symmetries | some p1.ints & p2.ints => p1 = p2) &&
-	 *          (all ts: bounds.(lowerBound + upperBound + intBound)[Relation] | 
-	 *            some decomposition: set List<IntSet> | 
-	 *                 decomposition.elements[int] in symmetries &&
-	 *                 decomposition.elements.IntSet = { i: int | 0 <= i < ts.arity } &&
-	 *                 ts.tuples = { t: Tuple | some part: decomposition | all i: [0 .. ts.arity-1] | t.atomIndex(i) in part.get(i) }) && 
-	 *          (all other: set IntSet | #other > #symmetries =>
-	 *             some ts: bounds.(lowerBound + upperBound + intBound)[Relation] | 
-	 *              no decomposition: set List<IntSet> | 
-	 *                 decomposition.elements[int] in other &&
-	 *                 decomposition.elements.IntSet = { i: int | 0 <= i < ts.arity } &&
-	 *                 ts.tuples = { t: Tuple | some part: decomposition | all i: [0 .. ts.arity-1] | t.atomIndex(i) in part.get(i) })	
+	 * @return some symmetries: set IntSet | <br>
+	 *          (symmetries.ints = { i: int | 0 <= i < bounds.universe.size() }) && <br>
+	 *          (all p1, p2: symmetries | some p1.ints & p2.ints => p1 = p2) &&<br>
+	 *          (all ts: bounds.(lowerBound + upperBound + intBound)[Relation] | <br>
+	 *            some decomposition: set List<IntSet> | <br>
+	 *                 decomposition.elements[int] in symmetries && <br>
+	 *                 decomposition.elements.IntSet = { i: int | 0 <= i < ts.arity } &&<br>
+	 *                 ts.tuples = { t: Tuple | some part: decomposition | all i: [0 .. ts.arity-1] | t.atomIndex(i) in part.get(i) }) && <br>
+	 *          (all other: set IntSet | #other > #symmetries => <br>
+	 *             some ts: bounds.(lowerBound + upperBound + intBound)[Relation] | <br>
+	 *              no decomposition: set List<IntSet> | <br>
+	 *                 decomposition.elements[int] in other && <br>
+	 *                 decomposition.elements.IntSet = { i: int | 0 <= i < ts.arity } && <br>
+	 *                 ts.tuples = { t: Tuple | some part: decomposition | all i: [0 .. ts.arity-1] | t.atomIndex(i) in part.get(i) })
 	 */
 	public static Set<IntSet> partition(Bounds bounds) {		
 		final SymmetryDetector detector = new SymmetryDetector(bounds);
