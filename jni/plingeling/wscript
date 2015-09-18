@@ -12,7 +12,8 @@ def configure(conf):
     sourceclean(conf)
     root = conf.path.abspath()
     subprocess.check_call(['wget', 'http://fmv.jku.at/lingeling/' + PLINGELING + '.zip', '--directory-prefix', root])
-    subprocess.check_call(['tar', '-xzf', root + '/' + PLINGELING + '.zip', '-C', root, 'build.sh', 'code'])
+    subprocess.check_call(['unzip', root + '/' + PLINGELING + '.zip', 'code/*', '-d', root])
+    subprocess.check_call(['unzip', root + '/' + PLINGELING + '.zip', 'build.sh', '-d', root])
 
 def build(bld):
 

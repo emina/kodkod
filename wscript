@@ -74,7 +74,8 @@ def test(bld):
     bld(rule = 'java -cp {classpath} -Djava.library.path={libpath} {junit} {test}'.format(classpath = ':'.join(cp),
                                                                                           libpath = bld.env.LIBDIR,
                                                                                           junit = 'org.junit.runner.JUnitCore',
-                                                                                          test = 'kodkod.test.AllTests')) 
+                                                                                          test = 'kodkod.test.AllTests'),
+        always = True) 
 
 
         
