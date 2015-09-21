@@ -3,7 +3,7 @@ Kodkod
 
 This repository includes the source code for the
 [Kodkod](http://alloy.mit.edu/kodkod/index.html) solver for relational
-logic.  Kodkod provides a clean Java [API](http://alloy.mit.edu/kodkod/release/doc/) for constructing,
+logic.  Kodkod provides a clean Java [API](http://alloy.mit.edu/kodkod/release/current/doc/) for constructing,
 manipulating, and solving relational constraints. The
 source code is extensively documented, and the repository includes
 many [examples](https://github.com/emina/kodkod/tree/master/examples/kodkod/examples) demonstrating the use of the Kodkod API.
