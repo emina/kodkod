@@ -257,7 +257,7 @@ abstract class Skolemizer extends AbstractReplacer {
 				if (newDecl != decl) 
 					allSame = false;
 				visitedDecls = (visitedDecls==null) ? newDecl : visitedDecls.and(newDecl);
-				repEnv = repEnv.extend(decl.variable(), decl.variable());
+				repEnv = repEnv.extend(newDecl.variable(), newDecl.variable());
 			}
 			ret = allSame ? decls : visitedDecls;
 			return cache(decls, ret);
