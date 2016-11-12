@@ -3,7 +3,7 @@ Kodkod
 
 This repository includes the source code for the
 [Kodkod](http://emina.github.io/kodkod/) solver for relational
-logic.  Kodkod provides a clean Java [API](http://alloy.mit.edu/kodkod/release/current/doc/) for constructing,
+logic.  Kodkod provides a clean Java [API](http://emina.github.io/kodkod/release/current/doc/) for constructing,
 manipulating, and solving relational constraints. The
 source code is extensively documented, and the repository includes
 many [examples](https://github.com/emina/kodkod/tree/master/examples/kodkod/examples) demonstrating the use of the Kodkod API.
@@ -42,7 +42,7 @@ point to the JDK 8 home directory.
 
 ### Running Kodkod
 	
-[Download](http://alloy.mit.edu/kodkod/download.html) (or [build](https://github.com/emina/kodkod#building-and-installing-kodkod)) the ``kodkod.jar`` binary, solver binaries, and the ``examples.jar`` binary. Assuming that the current working directory contains these binaries, run the  [Sudoku example](https://github.com/emina/kodkod/blob/master/examples/kodkod/examples/sudoku/Sudoku.java) as follows:
+[Download](http://emina.github.io/kodkod/download.html) (or [build](https://github.com/emina/kodkod#building-and-installing-kodkod)) the ``kodkod.jar`` binary, solver binaries, and the ``examples.jar`` binary. Assuming that the current working directory contains these binaries, run the  [Sudoku example](https://github.com/emina/kodkod/blob/master/examples/kodkod/examples/sudoku/Sudoku.java) as follows:
 
   `$ java -cp kodkod.jar:examples.jar -Djava.library.path=. kodkod.examples.sudoku.Sudoku`  
   
