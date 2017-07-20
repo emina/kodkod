@@ -47,7 +47,7 @@ point to the JDK 8 home directory.
 
 ### Running Kodkod
 
-[Download](#downloading-kodkod) (or [build](#building-kodkod) the ``kodkod.jar`` binary, solver binaries, and the ``examples.jar`` binary. Assuming that the current working directory contains these binaries, run the  [Sudoku example](https://github.com/emina/kodkod/blob/master/examples/kodkod/examples/sudoku/Sudoku.java) as follows:
+[Download](#downloading-kodkod) or [build](#building-kodkod) the ``kodkod.jar`` binary, solver binaries, and the ``examples.jar`` binary. Assuming that the current working directory contains these binaries, run the  [Sudoku example](https://github.com/emina/kodkod/blob/master/examples/kodkod/examples/sudoku/Sudoku.java) as follows:
 
   `$ java -cp kodkod.jar:examples.jar -Djava.library.path=. kodkod.examples.sudoku.Sudoku`  
 
