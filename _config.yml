@@ -1,0 +1,22 @@
+# Site settings
+title: "The Kodkod Solver"
+email: emina@cs.washington.edu
+description: The Kodkod Solver
+baseurl: "/kodkod"
+url: "http://emina.github.io"
+github_username:  emina
+
+# Markdown settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+# Layouts
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
