@@ -56,7 +56,7 @@ public final class Containers {
 	 * The iterator is backed by the given array.  The contents
 	 * of the array are not modified by the iterator.
 	 * The returned iterator enumerates the items located between
-	 * indeces start, inclusive, and end, exclusive.  If start < end,
+	 * indices start, inclusive, and end, exclusive.  If start < end,
 	 * the elements are returned in the ascending order; otherwise,
 	 * they are returned in the descending order.
 	 * @throws NullPointerException  items = null
@@ -189,7 +189,7 @@ public final class Containers {
 	 * and reference equality. 
 	 * The array must be sorted into ascending order according to the identity hashcodes of its elements 
 	 * (as by {@link #identitySort(Object[])}) prior to making this call. If it is not sorted, 
-	 * the results are undefined.  If the array contains multiple occurences of the specified object, 
+	 * the results are undefined.  If the array contains multiple occurrences of the specified object,
 	 * there is no guarantee which one will be found.
 	 * @requires all i, j: [0..array.length) | i < j => array[i].hashCode() <= array[j].hashCode())
 	 * @return index of the search key, if it is contained in the array; otherwise, (-(insertion point) - 1). 
@@ -231,7 +231,7 @@ public final class Containers {
 	 * and object equality. 
 	 * The array must be sorted into ascending order according to the hashcodes of its elements 
 	 * (as by {@link #hashSort(Object[])}) prior to making this call. If it is not sorted, 
-	 * the results are undefined.  If the array contains multiple occurences of the specified object, 
+	 * the results are undefined.  If the array contains multiple occurrences of the specified object,
 	 * there is no guarantee which one will be found.
 	 * @requires all i, j: [0..array.length) | i < j => System.identityHashCode(array[i]) <= System.identityHashCode(array[j])
 	 * @return index of the search key, if it is contained in the array; otherwise, (-(insertion point) - 1). 
@@ -334,7 +334,7 @@ public final class Containers {
 		 * The iterator is backed by the given array.  The contents
 		 * of the array are not modified by the iterator.  The 
 		 * constructed iterator returns the items located between the 
-		 * indeces start, inclusive, and end, exclusive.
+		 * indices start, inclusive, and end, exclusive.
 		 * @requires items != null && 
 		 *           start < end => end in [0..items.length] && start in [0..end], 
 		 *                          start in [0..items.length) && end in [-1..start]

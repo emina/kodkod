@@ -43,7 +43,7 @@ import kodkod.instance.TupleSet;
  * that an Instance i is a solution to a formula f found using options o.
  * If you create an evaluator e such that e.instance = i, but e.options
  * is an Options object with different integer settings than o, 
- * e.evalate(f) may return false. </p>
+ * e.evaluate(f) may return false. </p>
  * 
  * @specfield options: Options
  * @specfield instance: Instance
@@ -103,7 +103,7 @@ public final class Evaluator {
 	}
 	
 	/**
-	 * Evaluates the specified expession with respect to the relation-tuple mappings 
+	 * Evaluates the specified expression with respect to the relation-tuple mappings
 	 * given by this.instance and using this.options.
 	 * @return  {@link kodkod.instance.TupleSet set} of tuples to which the expression evaluates given the
 	 * mappings in this.instance and the options in this.options.
@@ -118,7 +118,7 @@ public final class Evaluator {
 	}
 	
 	/**
-	 * Evaluates the specified int expession with respect to the relation-tuple mappings 
+	 * Evaluates the specified int expression with respect to the relation-tuple mappings
 	 * given by this.instance and using this.options.
 	 * @return  the integer to which the expression evaluates given the
 	 * mappings in this.instance and the options in this.options.

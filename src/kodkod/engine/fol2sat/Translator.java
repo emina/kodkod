@@ -104,7 +104,7 @@ public final class Translator {
 	}
 
 	/**
-	 * Evalutes the given intexpression to an {@link kodkod.engine.bool.Int} using the provided instance and options. 
+	 * Evaluates the given intexpression to an {@link kodkod.engine.bool.Int} using the provided instance and options.
 	 * @return an {@link kodkod.engine.bool.Int} representing the value of the intExpr with respect
 	 * to the specified instance and options.
 	 * @throws NullPointerException  formula = null || instance = null || options = null
@@ -215,7 +215,7 @@ public final class Translator {
 		
 		// add new relation bindings to the translation bounds.  since the given bounds induce
 		// a coarser set of symmetries on the universe than transl.symmetries, adding their (disjoint) bindings to tBounds 
-		// will not change the symmetries of tBounds.  note that the ymmetries of tBounds refine transl.symmetries, and they 
+		// will not change the symmetries of tBounds.  note that the symmetries of tBounds refine transl.symmetries, and they
 		// may be strictly finer if some of the symmetries in transl.symmetries were broken via SymmetryBreaker.breakMatrixSymmetries(...) 
 		// during the generation of transl.  in particular, any symmetries absent from tBounds are precisely those that were broken based
 		// on the total ordering and acyclic predicates in transl.originalFormula.
@@ -481,7 +481,7 @@ public final class Translator {
 	 * information for each of the subformulas of f.node.  Specifically, let t be a subformula of f.node, and
 	 * s be a descdendent of annotated.node from which t was derived.  Then, f.source[t] = annotated.source[s]. </p>
 	 * @requires simplified.keySet() in annotated.predicates()[RelationPredicate.NAME]
-	 * @requires no disj p, p': simplified.keySet() | simplified.get(p) = simplifed.get(p') // this must hold in order
+	 * @requires no disj p, p': simplified.keySet() | simplified.get(p) = simplified.get(p') // this must hold in order
 	 * to maintain the invariant that each subformula of the returned formula has exactly one source
 	 * @requires for each p in simplified.keySet(), the formulas "p and [[this.bounds]]" and
 	 * "simplified.get(p) and [[this.bounds]]" are equisatisfiable

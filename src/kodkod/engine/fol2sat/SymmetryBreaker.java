@@ -259,7 +259,7 @@ final class SymmetryBreaker {
 	/**
 	 * Let t be the tuple represent by the given arity and tupleIndex.
 	 * This method returns the tuple index of the tuple t' such t'
-	 * is equal to t with each occurence of atomIndex0
+	 * is equal to t with each occurrence of atomIndex0
 	 * replaced by atomIndex1 and vice versa.
 	 * @return the index of the tuple to which the given symmetry
 	 * maps the tuple specified by arith and tupleIndex
@@ -318,7 +318,7 @@ final class SymmetryBreaker {
 	 * this.bounds.upperBound[acyclic.relation] is the cross product of some partition in this.symmetries with
 	 * itself. Assuming that this is the case, we then break symmetry on acyclic.relation using one of the methods
 	 * described in {@linkplain #breakMatrixSymmetries(Map, boolean)}; the method used depends
-	 * on the value of the "agressive" flag.
+	 * on the value of the "aggressive" flag.
 	 * The partition that formed the upper bound of acylic.relation is removed from this.symmetries.</p>
 	 * 
 	 * @return null if symmetry cannot be broken on acyclic; otherwise returns a formula
@@ -370,13 +370,13 @@ final class SymmetryBreaker {
 	 * cross-multiplied with itself gives the upper bound of total.relation. Assuming that this is the case, 
 	 * we then break symmetry on total.relation, total.first, total.last, and total.ordered using one of the methods
 	 * described in {@linkplain #breakMatrixSymmetries(Map, boolean)}; the method used depends
-	 * on the value of the "agressive" flag.
+	 * on the value of the "aggressive" flag.
 	 * The partition that formed the upper bound of total.ordered is removed from this.symmetries.</p>
 	 * 
 	 * @return null if symmetry cannot be broken on total; otherwise returns a formula
 	 * f such that the meaning of total with respect to this.bounds is equivalent to the
 	 * meaning of f with respect to this.bounds' 
-	 * @ensures this.symmetries and this.bounds are modified as desribed in {@linkplain #breakMatrixSymmetries(Map, boolean)} 
+	 * @ensures this.symmetries and this.bounds are modified as described in {@linkplain #breakMatrixSymmetries(Map, boolean)}
 	 * iff total.first, total.last, and total.ordered have the same upper bound, which, when 
 	 * cross-multiplied with itself gives the upper bound of total.relation
 	 * 

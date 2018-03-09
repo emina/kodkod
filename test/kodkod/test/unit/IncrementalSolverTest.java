@@ -221,7 +221,7 @@ public final class IncrementalSolverTest {
 
 		b.relations().clear();
 		b.bound(next09, t.allOf(2));
-		// expecting 6 variables for the symmetry-reduced upper bound of next47 and 100 for the the full upper bound of next09
+		// expecting 6 variables for the symmetry-reduced upper bound of next47 and 100 for the full upper bound of next09
 		checkOutcomeAndStats(checkModel(solver.solve(f[3], b), f[0], f[1], f[2], f[3]), SATISFIABLE, 100 + 6);
 	}
 
