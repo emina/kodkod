@@ -78,7 +78,7 @@ abstract class Skolemizer extends AbstractReplacer {
 	 * Skolemizes the given annotated formula using the given bounds and options.  If 
 	 * Options.trackFormulas is set and the formula is skolemizable, the resulting annotated
 	 * formula will contain transitive source information for each of its subformulas. 
-	 * Specifically, let f be the returned annotated formula, t be a descendeant of f.node, and
+	 * Specifically, let f be the returned annotated formula, t be a descendant of f.node, and
 	 * s a descendant of annotated.node from which t was derived.  Then, 
 	 * f.source[t] = annotated.source[s].  If options.trackFormulas is false, no source 
 	 * information will be recorded (i.e. f.source[t] = t for all descendants t of f).
@@ -157,7 +157,7 @@ abstract class Skolemizer extends AbstractReplacer {
 		super(annotated.sharedNodes());
 
 		// only cache intermediate computations for expressions with no free variables
-		// and formulas with no free variables and no quantified descendents
+		// and formulas with no free variables and no quantified descendants
 		
 		for(Node n: annotated.sharedNodes()) {
 			final AbstractDetector fvdetect = annotated.freeVariableDetector();
@@ -274,7 +274,7 @@ abstract class Skolemizer extends AbstractReplacer {
 	/** 
 	 * Returns the binding for the given variable in the current replacement environment.
 	 * @return the binding for the given variable in the current replacement environment.
-	 * @throws UnboundLeafException  variable not bound in teh replacement environment.
+	 * @throws UnboundLeafException  variable not bound in the replacement environment.
 	 */
 	@Override
 	public final Expression visit(Variable variable) { 

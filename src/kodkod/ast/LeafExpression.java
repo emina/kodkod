@@ -24,7 +24,7 @@ package kodkod.ast;
 /** 
  * An expression with no children.  
  * {@link kodkod.ast.Relation Relation} and {@link kodkod.ast.Variable Variable} 
- * are examples of leaf exressions.  Two leaf expressions are equal 
+ * are examples of leaf expressions.  Two leaf expressions are equal
  * if and only if they refer to the same object.  That is, 
  * leaf1.eauls(leaf2) <=> leaf1 == leaf2.  A leaf has a name, which is 
  * basically a comment for the purpose of printing, viewing, etc.  The name 

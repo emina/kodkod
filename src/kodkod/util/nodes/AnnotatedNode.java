@@ -141,7 +141,7 @@ public final class AnnotatedNode<N extends Node> {
 	}
 	
 	/**
-	 * Returns the source of the the given descendant of this.node.
+	 * Returns the source of the given descendant of this.node.
 	 * @requires n in this.node.*components
 	 * @return this.source[n]
 	 */
@@ -215,10 +215,10 @@ public final class AnnotatedNode<N extends Node> {
 	}
 	
 	/**
-	 * Returns a Detector that will return TRUE when applied to a descendent
-	 * of this.node iff the descendent contains a quantified formula.
-	 * @return a Detector that will return TRUE when applied to a descendent
-	 * of this.node iff the descendent contains a quantified formula.
+	 * Returns a Detector that will return TRUE when applied to a descendant
+	 * of this.node iff the descendant contains a quantified formula.
+	 * @return a Detector that will return TRUE when applied to a descendant
+	 * of this.node iff the descendant contains a quantified formula.
 	 */
 	public final AbstractDetector quantifiedFormulaDetector() {
 		return new AbstractDetector(sharedNodes) {
@@ -229,10 +229,10 @@ public final class AnnotatedNode<N extends Node> {
 	}
 	
 	/**
-	 * Returns a Detector that will return TRUE when applied to a descendent
-	 * of this.node iff the descendent contains a free variable.
-	 * @return a Detector that will return TRUE when applied to a descendent
-	 * of this.node iff the descendent contains a free variable.
+	 * Returns a Detector that will return TRUE when applied to a descendant
+	 * of this.node iff the descendant contains a free variable.
+	 * @return a Detector that will return TRUE when applied to a descendant
+	 * of this.node iff the descendant contains a free variable.
 	 */
 	public final AbstractDetector freeVariableDetector() {
 		return new FreeVariableDetector(sharedNodes);
@@ -254,7 +254,7 @@ public final class AnnotatedNode<N extends Node> {
 	}
 	
 	/**
-	 * Detects shared non-leaf descendents of a given node.
+	 * Detects shared non-leaf descendants of a given node.
 	 * 
 	 * @specfield node: Node // node to which the analyzer is applied
 	 */
@@ -383,7 +383,7 @@ public final class AnnotatedNode<N extends Node> {
 		 * if it is mapped to TRUE, it has been visited with negated=TRUE,
 		 * if it is mapped to null, it has been visited with both values of negated. */
 		private final Map<Node,Boolean> visited;	
-		/* holds the top level predicates at the the end of the visit*/
+		/* holds the top level predicates at the end of the visit*/
 		final EnumMap<RelationPredicate.Name, Set<RelationPredicate>> preds;
 		/**
 		 * Constructs a new collector.

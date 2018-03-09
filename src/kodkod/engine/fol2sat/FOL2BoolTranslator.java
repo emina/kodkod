@@ -136,8 +136,8 @@ abstract class FOL2BoolTranslator implements ReturnVisitor<BooleanMatrix, Boolea
 	/**
 	 * Translates the given annotated expression into a boolean
 	 * matrix that is a least sound upper bound on the expression's
-	 * value, given the leaf and variable bindings in the 
-	 * the provided interpreter and environment.
+	 * value, given the leaf and variable bindings in the
+	 * provided interpreter and environment.
 	 * @requires interpreter.relations = AnnotatedNode.relations(annotated)
 	 * @return a boolean matrix that is a least sound upper bound on the expression's value
 	 * @throws HigherOrderDeclException  annotated.node contains a higher order declaration
@@ -419,7 +419,7 @@ abstract class FOL2BoolTranslator implements ReturnVisitor<BooleanMatrix, Boolea
 	 * @param decls the declarations comprehension
 	 * @param param formula the body of the comprehension
 	 * @param currentDecl currently processed declaration; should be 0 initially
-	 * @param declConstraints the constraints implied by the declarations; should be Boolean.TRUE intially
+	 * @param declConstraints the constraints implied by the declarations; should be Boolean.TRUE initially
 	 * @param partialIndex partial index into the provided matrix; should be 0 initially
 	 * @param matrix boolean matrix that will retain the final results; should be an empty matrix of dimensions universe.size^decls.length initially
 	 * @ensures the given matrix contains the translation of the comprehension "{ decls | formula }"
@@ -520,7 +520,7 @@ abstract class FOL2BoolTranslator implements ReturnVisitor<BooleanMatrix, Boolea
 	 * @param decls formula declarations
 	 * @param formula the formula body
 	 * @param currentDecl currently processed declaration; should be 0 initially
-	 * @param declConstraints the constraints implied by the declarations; should be Boolean.FALSE intially
+	 * @param declConstraints the constraints implied by the declarations; should be Boolean.FALSE initially
 	 * @param acc the accumulator that contains the top level conjunction; should be an empty AND accumulator initially
 	 * @ensures the given accumulator contains the translation of the formula "all decls | formula"
 	 */
@@ -556,7 +556,7 @@ abstract class FOL2BoolTranslator implements ReturnVisitor<BooleanMatrix, Boolea
 	 * @param decls formula declarations
 	 * @param formula the formula body
 	 * @param currentDecl currently processed declaration; should be 0 initially
-	 * @param declConstraints the constraints implied by the declarations; should be Boolean.TRUE intially
+	 * @param declConstraints the constraints implied by the declarations; should be Boolean.TRUE initially
 	 * @param acc the accumulator that contains the top level conjunction; should be an empty OR accumulator initially
 	 * @ensures the given accumulator contains the translation of the formula "some decls | formula"
 	 */
@@ -953,7 +953,7 @@ abstract class FOL2BoolTranslator implements ReturnVisitor<BooleanMatrix, Boolea
 	 * @param decls intexpr declarations
 	 * @param formula the formula body
 	 * @param currentDecl currently processed declaration; should be 0 initially
-	 * @param declConstraints the constraints implied by the declarations; should be Boolean.TRUE intially
+	 * @param declConstraints the constraints implied by the declarations; should be Boolean.TRUE initially
 	 * @param values integer values computed so far
 	 */
 	private final void sum(Decls decls, IntExpression expr, int currentDecl, BooleanValue declConstraints,

@@ -80,7 +80,7 @@ public final class Decl extends Decls {
     
     /**
      * Returns the expression in this declaration.
-     * @return this.exresssion
+     * @return this.expresssion
      */
     public Expression expression() { return expression;  }
     

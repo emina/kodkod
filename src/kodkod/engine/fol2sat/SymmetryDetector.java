@@ -247,7 +247,7 @@ public final class SymmetryDetector {
 	 * Returns an IntSet that can store elements
 	 * in the range [0..size), and that holds
 	 * the given number.
-	 * @requries 0 <= num < size
+	 * @requires 0 <= num < size
 	 * @return {s: IntSet | s.ints = num } 
 	 */
 	private static final IntSet oneOf(int size, int num) {
