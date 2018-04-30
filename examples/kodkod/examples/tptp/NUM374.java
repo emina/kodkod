@@ -221,7 +221,7 @@ public final class NUM374 {
 	}
 	
 	/**
-	 * Returns the conjuction of all axioms.
+	 * Returns the conjunction of all axioms.
 	 * @return axioms
 	 */
 	public final Formula axioms() {

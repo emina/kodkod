@@ -43,7 +43,7 @@ import kodkod.util.ints.TreeSequence;
 /** 
  * <p>An n-dimensional matrix of {@link kodkod.engine.bool.BooleanValue boolean values}.  
  * Boolean matrices are indexed using flat integer indeces.  For example,
- * let m be a the 2 x 3 matrix of boolean variables identifed by labels [0 4 1; 5 10 2].  
+ * let m be the 2 x 3 matrix of boolean variables identified by labels [0 4 1; 5 10 2].
  * Then, m[0] = 0, m[3] = 5, m[5] = 2, etc. </p> 
  * 
  * <p>All values stored in the same matrix must be created by the same {@link kodkod.engine.bool.BooleanFactory circuit factory}.  

@@ -29,7 +29,7 @@ import kodkod.ast.visitor.VoidVisitor;
  * Represents a variable in a {@link QuantifiedFormula quantified formula}, 
  * a {@link Comprehension comprehension expression}, or a {@link SumExpression sum expression}.  
  * Two variables are the same if and only if they
- * refer to the same object.  That is, v1.eauls(v2) <=> v1 == v2.  Each
+ * refer to the same object.  That is, v1.equals(v2) <=> v1 == v2.  Each
  * variable has a name, which is basically a comment for the purpose of 
  * printing, viewing, etc.  The name has no meaning otherwise.  The arity of
  * a variable specifies the arity of expressions over which the variable can

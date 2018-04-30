@@ -89,9 +89,9 @@ public final class Statistics {
 	}
 	
 	/**
-	 * Returns the number of miliseconds spent
+	 * Returns the number of milliseconds spent
 	 * on translation this.formula to CNF.
-	 * @return the number of miliseconds spent
+	 * @return the number of milliseconds spent
 	 * on translation this.formula to CNF.
 	 */
 	public long translationTime() {
@@ -99,9 +99,9 @@ public final class Statistics {
 	}
 	
 	/**
-	 * Returns the number of miliseconds spent
+	 * Returns the number of milliseconds spent
 	 * on solving the CNF encoding of this.formula.
-	 * @return the number of miliseconds spent
+	 * @return the number of milliseconds spent
 	 * on solving the CNF encoding of this.formula.
 	 */
 	public long solvingTime() {
