@@ -305,7 +305,7 @@ final class TwosComplementInt extends Int {
 	 * Performs non-restoring signed division of this and the given integer.  Returns 
 	 * the this.factory.bitwidth low-order bits of the quotient if the quotient flag 
 	 * is true; otherwise returns the this.factory.bitwidth low-order bits of the remainder.  
-	 * Both the quotionent and the remainder are given in little endian format.  
+	 * Both the quotient and the remainder are given in little endian format.
 	 * @see Behrooz Parhami, Computer Arithmetic: Algorithms and Hardware Designs,
 	 * Oxford University Press, 2000, pp. 218-221.
 	 * @requires this.factory = d.factory && d instanceof BinaryInt

@@ -29,7 +29,7 @@ public final class Lists {
 	private final Relation car, cdr, equivTo, prefixes;
 	
 	/**
-	 * Constructs a new isntance of the Lists model.
+	 * Constructs a new instance of the Lists model.
 	 */
 	public Lists() {
 		Thing = Relation.unary("Thing");

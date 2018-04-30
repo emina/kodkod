@@ -25,7 +25,7 @@ public final class ALG212 {
 	private final Relation f;
 	
 	/**
-	 * Constucts a new instance of ALG212.
+	 * Constructs a new instance of ALG212.
 	 */
 	public ALG212() {
 		f = Relation.nary("f", 4);
@@ -99,7 +99,7 @@ public final class ALG212 {
 	}
 	
 	/**
-	 * Returns the conjuction of all axioms.
+	 * Returns the conjunction of all axioms.
 	 * @return axioms
 	 */
 	public final Formula axioms() { 

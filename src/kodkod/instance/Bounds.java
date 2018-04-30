@@ -260,7 +260,7 @@ public final class Bounds implements Cloneable {
 	
 	/**
 	 * Makes the specified tupleset the upper bound on the contents of the given relation.  
-	 * The lower bound automatically becomen an empty tupleset with the same arity as
+	 * The lower bound automatically become an empty tupleset with the same arity as
 	 * the relation. 
 	 * 
 	 * @requires upper.arity = r.arity && upper.universe = this.universe

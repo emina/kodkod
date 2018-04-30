@@ -158,7 +158,7 @@ public final class Solver implements KodkodSolver {
 	 * to prove the formula's unsatisfiability.
 	 * If the operation is successful, the method returns an iterator over n Solution objects. The outcome
 	 * of the first n-1 solutions is SAT or trivially SAT, and the outcome of the nth solution is UNSAT
-	 * or tirivally  UNSAT.  Note that an unsatisfiability
+	 * or trivially  UNSAT.  Note that an unsatisfiability
 	 * proof will be constructed for the last solution iff this.options specifies the use of a core extracting SATSolver.
 	 * Additionally, the CNF variables in the proof can be related back to the nodes in the given formula 
 	 * iff this.options has variable tracking enabled.  Translation logging also requires that 

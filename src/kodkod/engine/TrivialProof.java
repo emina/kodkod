@@ -52,7 +52,7 @@ import kodkod.util.ints.TreeSequence;
 
 /**
  * A proof of unsatisfiability for a trivially unsatisfiable formula.
- * A formula is considered trivally unsatisfiable if its unsatisfiability
+ * A formula is considered trivially unsatisfiable if its unsatisfiability
  * is discovered through translation alone.
  *  
  * @author Emina Torlak

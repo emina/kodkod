@@ -353,7 +353,7 @@ public final class PrettyPrinter {
 		
 		
 
-		/** @return true if the given operator is assocative */
+		/** @return true if the given operator is associative */
 		private boolean associative(IntOperator op) { 
 			switch(op) { 
 			case DIVIDE : case MODULO : case SHA : case SHL : case SHR : return false;

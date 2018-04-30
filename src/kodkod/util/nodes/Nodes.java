@@ -58,7 +58,7 @@ public final class Nodes {
      * such that, for all 0<=i<=k, f<sub>i</sub> is not a conjunction  and
      * [[f0 && ... && fk]] <=> [[formula]].  
      * @return subformulas, {f0, ..., fk}, of the given formula such that, for all 0<=i<=k, 
-     * f<sub>i</sub> is not a conjuction and [[f0 && ... && fk]] <=> [[formula]].    
+     * f<sub>i</sub> is not a conjunction and [[f0 && ... && fk]] <=> [[formula]].
      */
 	public static Set<Formula> roots(Formula formula) {
 	
